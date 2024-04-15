@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propiedades del Trigo</title>
+    <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Incluye la biblioteca html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <!-- Estilos personalizados para la tabla -->
+    <style>
+        #data-table {
+            /* Cambia el color de fondo de la tabla */
+            background-color: #f8f9fa;
+        }
+        #data-table th {
+            /* Cambia el color de fondo y el color del texto de los encabezados de la tabla */
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        #data-table td {
+            /* Cambia el color del texto de las celdas de la tabla */
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center my-4">Propiedades del Trigo</h1>
+    <button onclick="downloadPNG()" class="btn btn-primary mb-3">Descargar PNG</button>
+    <table class="table table-striped" id="data-table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre de la Variedad</th>
+            <th scope="col">Tamaño del Grano (mm)</th>
+            <th scope="col">Cantidad de Gluten (%)</th>
+            <th scope="col">Contenido de Proteína (%)</th>
+            <th scope="col">Rendimiento de Harina (%)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Variedad A</td>
+            <td>5.5</td>
+            <td>12.5</td>
+            <td>14.0</td>
+            <td>76.0</td>
+        </tr>
+        <tr>
+            <td>Variedad B</td>
+            <td>6.0</td>
+            <td>13.0</td>
+            <td>15.0</td>
+            <td>78.0</td>
+        </tr>
+        <tr>
+            <td>Variedad C</td>
+            <td>5.8</td>
+            <td>12.0</td>
+            <td>14.5</td>
+            <td>77.0</td>
+        </tr>
+        <!-- Añade más filas según sea necesario -->
+        </tbody>
+    </table>
+</div>
+<!-- JS de Bootstrap -->
+<script src="js/bootstrap.bundle.js"></script>
+<script>
+    function downloadPNG() {
+        html2canvas(document.querySelector("#data-table")).then(canvas => {
+            let link = document.createElement('a');
+            link.download = 'data.png';
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        });
+    }
+</script>
+</body>
+</html>
+
